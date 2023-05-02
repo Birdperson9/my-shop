@@ -1,4 +1,4 @@
-const asyncHandler = require('express-async-handler')
+const asyncHandler = require('../middleware/asyncHandler')
 const Order = require('../models/orderModel.js')
 
 // description Create new order
@@ -20,7 +20,11 @@ const addOrderItems = asyncHandler(async (req, res) => {
     throw new Error('No order items')
   } else {
     const order = new Order({
-      orderItems,
+      orderItems: orderItems.map((x) => ({
+        ...x,
+        product: x._id,
+        _id: undefined,
+      })),
       user: req.user._id,
       shippingAddress,
       paymentMethod,
@@ -46,7 +50,7 @@ const getOrderById = asyncHandler(async (req, res) => {
   )
 
   if (order) {
-    res.status(200).json(order)
+    res.json(order)
   } else {
     res.status(404)
     throw new Error('Order not found')
@@ -71,7 +75,7 @@ const updateOrderToPaid = asyncHandler(async (req, res) => {
 
     const updatedOrder = await order.save()
 
-    res.status(200).json(updatedOrder)
+    res.json(updatedOrder)
   } else {
     res.status(404)
     throw new Error('Order not found')
@@ -90,27 +94,27 @@ const updateOrderToDelivered = asyncHandler(async (req, res) => {
 
     const updatedOrder = await order.save()
 
-    res.status(200).json(updatedOrder)
+    res.json(updatedOrder)
   } else {
     res.status(404)
     throw new Error('Order not found')
   }
 })
 
-// description    Get logged in user orders
-// route   GET /api/orders/myorders
-// access  Private
+// description Get logged in user orders
+// route GET /api/orders/myorders
+// access Private
 const getMyOrders = asyncHandler(async (req, res) => {
   const orders = await Order.find({ user: req.user._id })
-  res.status(200).json(orders)
+  res.json(orders)
 })
 
-// description    Get all user orders
-// route   GET /api/orders
-// access  Private/Admin
+// description Get all user orders
+// route GET /api/orders
+// access Private/Admin
 const getOrders = asyncHandler(async (req, res) => {
   const orders = await Order.find({}).populate('user', 'id name')
-  res.status(200).json(orders)
+  res.json(orders)
 })
 
 module.exports = {

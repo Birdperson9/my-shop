@@ -1,11 +1,11 @@
-const asyncHandler = require('express-async-handler')
+const asyncHandler = require('../middleware/asyncHandler')
 const Product = require('../models/productModel.js')
 
 // description Fetch all products
 // route GET /api/products
 // access Public
 const getProducts = asyncHandler(async (req, res) => {
-  const pageSize = 10
+  const pageSize = process.env.PAGINATION_LIMIT
   const page = Number(req.query.pageNumber) || 1
 
   const keyword = req.query.keyword
@@ -22,7 +22,7 @@ const getProducts = asyncHandler(async (req, res) => {
     .limit(pageSize)
     .skip(pageSize * (page - 1))
 
-  res.status(200).json({ products, page, pages: Math.ceil(count / pageSize) })
+  res.json({ products, page, pages: Math.ceil(count / pageSize) })
 })
 
 // description Fetch single product
@@ -32,7 +32,7 @@ const getProductById = asyncHandler(async (req, res) => {
   const product = await Product.findById(req.params.id)
 
   if (product) {
-    res.status(200).json(product)
+    res.json(product)
   } else {
     res.status(404)
     throw new Error('Product not found')
@@ -46,8 +46,8 @@ const deleteProduct = asyncHandler(async (req, res) => {
   const product = await Product.findById(req.params.id)
 
   if (product) {
-    await product.remove()
-    res.status(200).json({ message: 'Product removed' })
+    await product.deleteOne({ _id: product._id })
+    res.json({ message: 'Product removed' })
   } else {
     res.status(404)
     throw new Error('Product not found')
@@ -93,7 +93,7 @@ const updateProduct = asyncHandler(async (req, res) => {
     product.countInStock = countInStock
 
     const updatedProduct = await product.save()
-    res.status(200).json(updatedProduct)
+    res.json(updatedProduct)
   } else {
     res.status(404)
     throw new Error('Product not found')
@@ -147,7 +147,7 @@ const createProductReview = asyncHandler(async (req, res) => {
 const getTopProducts = asyncHandler(async (req, res) => {
   const products = await Product.find({}).sort({ rating: -1 }).limit(3)
 
-  res.status(200).json(products)
+  res.json(products)
 })
 
 module.exports = {

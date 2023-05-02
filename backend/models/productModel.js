@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const reviewsSchema = mongoose.Schema(
+const reviewSchema = mongoose.Schema(
   {
     name: { type: String, required: true },
     rating: { type: Number, required: true },
@@ -47,7 +47,7 @@ const productSchema = mongoose.Schema(
       required: true,
     },
 
-    reviews: [reviewsSchema],
+    reviews: [reviewSchema],
     rating: {
       type: Number,
       required: true,

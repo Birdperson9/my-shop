@@ -23,19 +23,17 @@ function checkFileType(file, cb) {
   if (extname && mimetype) {
     return cb(null, true)
   } else {
-    cb('Images only!')
+    cb({ message: 'Images only!' })
   }
 }
 
-const upload = multer({
-  storage,
-  fileFilter: function (req, file, cb) {
-    checkFileType(file, cb)
-  },
-})
+const upload = multer({ storage })
 
 router.post('/', upload.single('image'), (req, res) => {
-  res.send(`/${req.file.path}`)
+  res.send({
+    message: 'Image uploaded successfully',
+    image: `/${req.file.path}`,
+  })
 })
 
 module.exports = router

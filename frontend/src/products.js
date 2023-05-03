@@ -1,0 +1,95 @@
+const products = [
+  {
+    _id: '1',
+    name: 'Beyerdynamic DT 770 PRO',
+    image: '/images/dt770.jpg',
+    description:
+      '​​​​​​​The DT 770 PRO headphones is the range’s closed-back model and offers maximum flexibility and detailed sound that you can rely on.',
+    brand: 'Beyerdynamic',
+    category: 'Headphones',
+    price: 156.16,
+    countInStock: 10,
+    rating: 4.5,
+    numReviews: 12,
+  },
+  {
+    _id: '2',
+    name: 'Beyerdynamic DT 880 PRO',
+    image: '/images/dt880.jpg',
+    description:
+      'The DT 880 PRO is the semi-open-model in the classic range and offers impressive natural and neutral sound.',
+    brand: 'Beyerdynamic',
+    category: 'Headphones',
+    price: 179.99,
+    countInStock: 7,
+    rating: 4.0,
+    numReviews: 8,
+  },
+  {
+    _id: '3',
+    name: 'Beyerdynamic DT 990 PRO',
+    image: '/images/dt990.jpg',
+    description:
+      'The DT 990 PRO headphones is the range’s open-back model offering impressive spaciousness.',
+    brand: 'Beyerdynamic',
+    category: 'Headphones',
+    price: 156.16,
+    countInStock: 5,
+    rating: 3,
+    numReviews: 12,
+  },
+  {
+    _id: '4',
+    name: 'Beyerdynamic DT 700 PRO X',
+    image: '/images/dt700.jpg',
+    description:
+      'The closed-back design of the beyerdynamic DT 700 Pro X makes the headset perfect for monitoring in recording applications, since it provides efficient sound isolation to eliminate ambient noise.',
+    brand: 'Beyerdynamic',
+    category: 'Headphones',
+    price: 256.1,
+    countInStock: 11,
+    rating: 5,
+    numReviews: 12,
+  },
+  {
+    _id: '5',
+    name: 'Beyerdynamic DT 900 PRO X',
+    image: '/images/dt900.jpg',
+    description:
+      'The open-back design of the beyerdynamic DT 900 Pro X means that the headset is less well-suited to use in the tracking room, since ambient noises are allowed to pass virtually unhindered and prevent the user from hearing the monitor mix without interference.',
+    brand: 'Beyerdynamic',
+    category: 'Headphones',
+    price: 256.1,
+    countInStock: 7,
+    rating: 3.5,
+    numReviews: 10,
+  },
+  {
+    _id: '6',
+    name: 'Beyerdynamic DT 1770 PRO.jpg',
+    image: '/images/dt1770.jpg',
+    description:
+      'These benchmark-setting closed-back studio headphones combine decades of expertise in headphone production with the latest Tesla driver technology.',
+    brand: 'Beyerdynamic',
+    category: 'Headphones',
+    price: 499.0,
+    countInStock: 0,
+    rating: 4,
+    numReviews: 12,
+  },
+  {
+    _id: '7',
+    name: 'Beyerdynamic DT 1990 PRO.jpg',
+    image: '/images/dt1990.jpg',
+    description:
+      'The open, circumaural design offers a natural and extremely spatial sound. The DT 1990 PRO Tesla headphones optimized spatial sound reproduction makes them a reliable reference for mixing and mastering applications.',
+    brand: 'Beyerdynamic',
+    category: 'Headphones',
+    price: 499.0,
+    countInStock: 0,
+    rating: 4,
+    numReviews: 12,
+  },
+]
+
+export default products

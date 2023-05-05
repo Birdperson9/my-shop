@@ -1,4 +1,5 @@
 const dotenv = require('dotenv').config()
+const colors = require('colors')
 const connectDB = require('./config/db')
 const users = require('./data/users.js')
 const products = require('./data/products.js')

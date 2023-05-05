@@ -1,6 +1,8 @@
 import { Row, Col } from 'react-bootstrap'
 import { useGetProductsQuery } from '../redux/slices/productApiSlice'
 import Product from '../components/Product'
+import Loader from '../components/Loader'
+import Message from '../components/Message'
 
 const Home = () => {
   const { data: products, isLoading, error } = useGetProductsQuery()
@@ -8,9 +10,11 @@ const Home = () => {
   return (
     <>
       {isLoading ? (
-        <div>Loading...</div>
+        <Loader />
       ) : error ? (
-        <div>{error?.data.message || error.error}</div>
+        <Message variant='danger'>
+          {error?.data?.message || error.error}
+        </Message>
       ) : (
         <>
           <h1>Latest Products</h1>

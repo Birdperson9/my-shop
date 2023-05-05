@@ -10,8 +10,10 @@ import {
   Route,
   RouterProvider,
 } from 'react-router-dom'
+import { Provider } from 'react-redux'
 import Home from './pages/Home'
 import Product from './pages/Product'
+import store from './redux/store'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -27,7 +29,9 @@ const root = createRoot(container)
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 )
 

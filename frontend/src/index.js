@@ -19,6 +19,7 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import Shipping from './pages/Shipping'
 import Payment from './pages/Payment'
+import PlaceOrder from './pages/PlaceOrder'
 import store from './redux/store'
 
 const router = createBrowserRouter(
@@ -32,6 +33,7 @@ const router = createBrowserRouter(
       <Route path='' element={<PrivateRoute />}>
         <Route path='/shipping' element={<Shipping />} />
         <Route path='/payment' element={<Payment />} />
+        <Route path='/placeorder' element={<PlaceOrder />} />
       </Route>
     </Route>
   )

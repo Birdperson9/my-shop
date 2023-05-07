@@ -15,7 +15,7 @@ import {
   usePayOrderMutation,
   useGetPaypalClientIdQuery,
   useDeliverOrderMutation,
-} from '../redux/slices/orderApiSlice'
+} from '../redux/slices/ordersApiSlice'
 
 const Order = () => {
   const { id: orderId } = useParams()

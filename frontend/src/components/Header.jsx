@@ -3,7 +3,7 @@ import { FaShoppingCart, FaUser } from 'react-icons/fa'
 import { LinkContainer } from 'react-router-bootstrap'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { useLogoutMutation } from '../redux/slices/userApiSlice'
+import { useLogoutMutation } from '../redux/slices/usersApiSlice'
 import { logout } from '../redux/slices/authSlice'
 
 const Header = () => {
@@ -66,6 +66,9 @@ const Header = () => {
 
               {userInfo && userInfo.isAdmin && (
                 <NavDropdown title='Admin' id='adminmenu'>
+                  <LinkContainer to='/admin/productlist'>
+                    <NavDropdown.Item>Products</NavDropdown.Item>
+                  </LinkContainer>
                   <LinkContainer to='/admin/orderlist'>
                     <NavDropdown.Item>Orders</NavDropdown.Item>
                   </LinkContainer>

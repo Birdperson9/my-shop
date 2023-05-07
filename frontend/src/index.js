@@ -24,7 +24,8 @@ import Payment from './pages/Payment'
 import PlaceOrder from './pages/PlaceOrder'
 import Order from './pages/Order'
 import Profile from './pages/Profile'
-import OrderList from './pages/OrderList'
+import OrderList from './pages/admin/OrderList'
+import ProductList from './pages/admin/ProductList'
 import store from './redux/store'
 
 const router = createBrowserRouter(
@@ -43,6 +44,7 @@ const router = createBrowserRouter(
         <Route path='/profile' element={<Profile />} />
       </Route>
       <Route path='' element={<AdminRoute />}>
+        <Route path='/admin/productlist' element={<ProductList />} />
         <Route path='/admin/orderlist' element={<OrderList />} />
       </Route>
     </Route>

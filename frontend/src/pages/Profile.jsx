@@ -6,8 +6,8 @@ import { FaTimes } from 'react-icons/fa'
 import { toast } from 'react-toastify'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
-import { useProfileMutation } from '../redux/slices/userApiSlice'
-import { useGetMyOrdersQuery } from '../redux/slices/orderApiSlice'
+import { useProfileMutation } from '../redux/slices/usersApiSlice'
+import { useGetMyOrdersQuery } from '../redux/slices/ordersApiSlice'
 import { setCredentials } from '../redux/slices/authSlice'
 
 const Profile = () => {

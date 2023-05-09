@@ -110,7 +110,7 @@ const Profile = () => {
             {error?.data?.message || error.error}
           </Message>
         ) : (
-          <Table striped table hover responsive className='table-sm'>
+          <Table striped table='true' hover responsive className='table-sm'>
             <thead>
               <tr>
                 <th>ID</th>

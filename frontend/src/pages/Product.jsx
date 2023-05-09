@@ -12,6 +12,7 @@ import { addToCart } from '../redux/slices/cartSlice'
 import Rating from '../components/Rating'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
+import Meta from '../components/Meta'
 
 const Product = () => {
   const { id: productId } = useParams()
@@ -69,6 +70,7 @@ const Product = () => {
         </Message>
       ) : (
         <>
+          <Meta title={product.name} description={product.description} />
           <Row>
             <Col md={6}>
               <Image src={product.image} alt={product.name} fluid />

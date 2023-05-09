@@ -74,13 +74,6 @@ const Order = () => {
     })
   }
 
-  async function onApproveTest() {
-    await payOrder({ orderId, details: { payer: {} } })
-    refetch()
-
-    toast.success('Order is paid')
-  }
-
   function onError(err) {
     toast.error(err.message)
   }
@@ -224,13 +217,6 @@ const Order = () => {
                       <Loader />
                     ) : (
                       <div>
-                        <Button
-                          style={{ marginBottom: '10px' }}
-                          onClick={onApproveTest}
-                        >
-                          Test Pay Order
-                        </Button>
-
                         <div>
                           <PayPalButtons
                             createOrder={createOrder}

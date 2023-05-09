@@ -26,6 +26,7 @@ import Order from './pages/Order'
 import Profile from './pages/Profile'
 import OrderList from './pages/admin/OrderList'
 import ProductList from './pages/admin/ProductList'
+import ProductEdit from './pages/admin/ProductEdit'
 import store from './redux/store'
 
 const router = createBrowserRouter(
@@ -46,6 +47,7 @@ const router = createBrowserRouter(
       <Route path='' element={<AdminRoute />}>
         <Route path='/admin/productlist' element={<ProductList />} />
         <Route path='/admin/orderlist' element={<OrderList />} />
+        <Route path='/admin/product/:id/edit' element={<ProductEdit />} />
       </Route>
     </Route>
   )
